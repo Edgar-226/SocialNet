@@ -4,8 +4,7 @@ require('dotenv').config();
 const sequelize = require('./back/db/conexion');
 const frontView = require('./back/views/indexView');
 const loginView = require('./back/views/loginView');
-const { login } = require('./back/controller/loginController');
-
+const studiesView = require('./back/views/studiesView');
 const app = express();
 
 
@@ -29,5 +28,6 @@ async function serverStart() {
 
 serverStart();
 
-frontView(app)
-loginView(app)
+frontView(app);
+loginView(app);
+studiesView(app);
