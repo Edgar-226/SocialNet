@@ -5,23 +5,33 @@ USE socialnet
 CREATE TABLE users
 (
     id_user int NOT NULL IDENTITY (1,1),
-    picture VARCHAR(100),
     first_name VARCHAR (45),
     last_name VARCHAR(45),
+    city VARCHAR(50),
     linkedln VARCHAR(50),
-    age INT,
+    age DATE,
     email VARCHAR(100) NOT NULL UNIQUE,
     [password] VARCHAR(100) NOT NULL,
     PRIMARY KEY(id_user)
 )
-
 INSERT INTO users
 VALUES
-    ('./img/fotoE.jpg', 'Edgar', 'Bastida', 'https://www.linkedin.com/in/edgar-bastida/', 26, 'edgar@mail.com','edgarpass'),
-    ('./img/fotoA.jpg', 'Anahi', 'Miranda', 'https://www.linkedin.com/in/anahi-miranda/', 20, 'anahi@mail.com','anahipass');
+    ('Edgar', 'Bastida','México', 'https://www.linkedin.com/in/edgar-bastida/', '1995-03-12', 'edgar@mail.com','edgarpass'),
+    ('Anahi', 'Miranda','México', 'https://www.linkedin.com/in/anahi-miranda/', '2000-08-17', 'anahi@mail.com','anahipass');
 
 SELECT *
 FROM users
+
+CREATE TABLE pefilPicture (
+    id_picture INT NOT NULL IDENTITY (1,1),
+    id_user INT NOT NULL,
+    img_url VARCHAR(100),
+    img VARBINARY(MAX) NOT NULL,
+    PRIMARY KEY(id_picture),
+    FOREIGN KEY (id_user) REFERENCES users(id_user)
+)
+
+
 
 CREATE TABLE studies
 (
@@ -119,3 +129,5 @@ DROP TABLE friends;
 DROP TABLE hobbies;
 DROP TABLE languages;
 DROP TABLE users;
+
+SELECT first_name, place, title FROM studies RIGHT JOIN users ON studies.id_user = users.id_user WHERE users.id_user = 1
