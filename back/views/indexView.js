@@ -4,8 +4,11 @@ module.exports = async (app) => {
     });
     
     // about page
-    app.get('/about', function(req, res) {
-        res.render('pages/about');
+    app.get('/singIn', function(req, res) {
+        res.render('pages/singIn');
+    });
+    app.get('/portada', function(req, res) {
+        res.render('pages/portada');
     });
     
 }

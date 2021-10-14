@@ -46,6 +46,7 @@ async function loginUser() {
                     } catch (error) {
                         console.log(myResult)
                         document.cookie = `token=${myResult}; max-age=3600; path=/`;
+                        window.location.href = '/portada';
                     }
                 })
                 .catch(error => console.log('error', error));

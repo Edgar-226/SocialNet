@@ -94,9 +94,11 @@ INSERT INTO hobbies
 VALUES
     (1, 'Reposteria');
 
-SELECT *
-FROM hobbies
+SELECT * FROM hobbies
 
+SELECT *
+FROM hobbies RIGHT JOIN users ON hobbies.id_user = users.id_user
+WHERE users.id_user = 2
 
 CREATE TABLE friends 
 (
