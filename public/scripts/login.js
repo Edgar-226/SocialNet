@@ -21,6 +21,7 @@ async function singInUser() {
     nameUser = document.getElementById("nameUser").value
     lastNameUser = document.getElementById("lastNameUser").value
     cityUser = document.getElementById("cityUser").value
+    countryUser = document.getElementById("countryUser").value
     linkedlnUser = document.getElementById("linkedlnUser").value
     ageUser = document.getElementById("ageUser").value
     emailUser = document.getElementById("emailUser").value
@@ -34,6 +35,9 @@ async function singInUser() {
     }
     else if (!validateText(cityUser)) {
         alert("Ingrese su Ciudad")
+    }
+    else if (!validateText(countryUser)) {
+        alert("Ingrese su País")
     }
     else if (!validateText(linkedlnUser)) {
         alert("Ingrese su linkedln")
@@ -62,6 +66,7 @@ async function singInUser() {
             "last_name": lastNameUser,
             "linkedln": linkedlnUser,
             "city": cityUser,
+            "country": countryUser,
             "age": ageUser,
             "email": emailUser,
             "password": passwordUser
