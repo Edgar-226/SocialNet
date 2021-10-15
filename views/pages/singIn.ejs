@@ -2,14 +2,20 @@
 <html lang="en">
 
 <head>
+
     <head>
         <%- include('../partials/head'); %>
     </head>
 
-    <title>SocialNet</title>
+    <title>WhyNet</title>
 </head>
 
+
 <body>
+
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
     <div class="container">
         <div class="row">
             <div class="col-md-6">
@@ -17,16 +23,18 @@
                     <form class="box">
                         <h1>Registro</h1>
                         <p class="text-muted"> Ingrese sus Datos</p>
-                        <input id="emailUser" type="email" name="" placeholder="Email">
-                        <input id="emailUser" type="email" name="" placeholder="Email">
-                        <input id="emailUser" type="email" name="" placeholder="Email">
-                        <input id="emailUser" type="email" name="" placeholder="Email">
-                        <input id="emailUser" type="email" name="" placeholder="Email">
+                        <input id="nameUser" type="text" name="" placeholder="Nombre">
+                        <input id="lastNameUser" type="text" name="" placeholder="Apellido">
+                        <input id="cityUser" type="text" name="" placeholder="Ciudad">
+                        <input id="linkedlnUser" type="text" name="" placeholder="linkedln">
+                        <p class="text-muted"> Fecha de nacimiento</p>
+                        <input id="ageUser" type="date" name="">
+                        <input id="emailUser" type="email" name="" placeholder="email">
                         <input id="passwordUser" type="password" name="" placeholder="Contraseña">
+                        <input id="passwordUser2" type="password" name="" placeholder="Repita su Contraseña">
                         <a class="forgot text-muted" href="/">Iniciar Sesión</a>
-                        <input type="button" onclick="loginUser()" name="" value="Entrar" >
+                        <input type="button" onclick="singInUser()" name="" value="Registrarse">
                         <div class="col-md-12">
-                            
                         </div>
                     </form>
                 </div>
@@ -35,6 +43,6 @@
     </div>
 </body>
 
-<script src="./scripts/index.js"></script>
+<script src="./scripts/login.js"></script>
 
 </html>

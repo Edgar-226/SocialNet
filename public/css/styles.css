@@ -24,6 +24,7 @@ body {
 }
 
 .box input[type="text"],
+.box input[type="date"],
 .box input[type="email"],
 .box input[type="password"] {
     border: 0;
@@ -47,6 +48,7 @@ body {
 }
 
 .box input[type="text"]:focus,
+.box input[type="date"]:focus,
 .box input[type="password"]:focus {
     width: 300px;
     border-color: #2ecc71

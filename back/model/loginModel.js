@@ -7,7 +7,7 @@ module.exports = class loginModel {
     }
 
     async singIn(user) {
-        let result = await sequelize.query("INSERT INTO users  VALUES ('" + user.first_name + "', '" + user.last_name + "','"+user.city+" '" + user.linkedln + "'," + user.age + ", '" + user.email + "','"+user.password+"')");
+        let result = await sequelize.query("INSERT INTO users  VALUES ('" + user.first_name + "', '" + user.last_name + "','"+user.city+"', '" + user.linkedln + "','" + user.age + "', '" + user.email + "','"+user.password+"')");
         console.log(result);
         if (result[0].length == 0) {
             let result = await sequelize.query("SELECT  id_user,first_name,last_name,email FROM users WHERE [email] ='" + user.email + "' AND [password] = '" + user.password + "'");
