@@ -26,5 +26,23 @@ function validarSesion() {
     }
     
 }
+async function getUser(){
+    var myHeaders = new Headers();
+myHeaders.append("Authorization", "Bearer "+ readCookie("token"));
+
+var requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+  redirect: 'manual'
+};
+
+fetch("http://localhost:3000/login/data", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+}
+
+
 
 validarSesion()
+getUser()
