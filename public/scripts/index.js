@@ -22,27 +22,32 @@ function eliminarCookies() {
 function validarSesion() {
     if (!readCookie("token")) {
         window.location.href = "./";
-        
+
     }
-    
+
 }
-async function getUser(){
+async function getUser() {
     var myHeaders = new Headers();
-myHeaders.append("Authorization", "Bearer "+ readCookie("token"));
+    myHeaders.append("Authorization", "Bearer " + readCookie("token"));
 
-var requestOptions = {
-  method: 'GET',
-  headers: myHeaders,
-  redirect: 'manual'
-};
+    var requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'manual'
+    };
 
-fetch("http://localhost:3000/login/data", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
+    fetch("http://localhost:3000/login/data", requestOptions)
+        .then(response => response.text())
+        .then(result => showDataUser(result))
+        .catch(error => console.log('error', error));
 }
 
 
+function showDataUser(data){
+    console.log(JSON.parse(data));
+    datos = JSON.parse(data);
+    document.getElementById("nameUser").textContent = datos['first_name'] +" "+ datos['last_name']
+}
 
 validarSesion()
 getUser()

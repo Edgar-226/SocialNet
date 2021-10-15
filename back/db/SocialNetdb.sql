@@ -8,6 +8,7 @@ CREATE TABLE users
     first_name VARCHAR (45),
     last_name VARCHAR(45),
     city VARCHAR(50),
+    country VARCHAR(50),
     linkedln VARCHAR(50),
     age DATE,
     email VARCHAR(100) NOT NULL UNIQUE,
@@ -16,21 +17,24 @@ CREATE TABLE users
 )
 INSERT INTO users
 VALUES
-    ('Edgar', 'Bastida','México', 'https://www.linkedin.com/in/edgar-bastida/', '1995-03-12', 'edgar@mail.com','edgarpass'),
-    ('Anahi', 'Miranda','México', 'https://www.linkedin.com/in/anahi-miranda/', '2000-08-17', 'anahi@mail.com','anahipass');
+    ('Edgar', 'Bastida','CDMX','México', 'https://www.linkedin.com/in/edgar-bastida/', '1995-03-12', 'edgar@mail.com','edgarpass'),
+    ('Anahi', 'Miranda','EDOMEX','México', 'https://www.linkedin.com/in/anahi-miranda/', '2000-08-17', 'anahi@mail.com','anahipass');
 
 SELECT *
 FROM users
 
-CREATE TABLE pefilPicture (
+CREATE TABLE perfilPicture (
     id_picture INT NOT NULL IDENTITY (1,1),
     id_user INT NOT NULL,
-    img_url VARCHAR(100),
     img VARBINARY(MAX) NOT NULL,
     PRIMARY KEY(id_picture),
     FOREIGN KEY (id_user) REFERENCES users(id_user)
 )
 
+
+SELECT img 
+FROM perfilPicture RIGHT JOIN users ON perfilPicture.id_user = users.id_user
+WHERE users.id_user = 1
 
 
 CREATE TABLE studies
@@ -92,7 +96,7 @@ CREATE TABLE hobbies
 
 INSERT INTO hobbies
 VALUES
-    (1, 'Reposteria');
+    (2, 'Reposteria');
 
 SELECT * FROM hobbies
 
@@ -100,15 +104,7 @@ SELECT *
 FROM hobbies RIGHT JOIN users ON hobbies.id_user = users.id_user
 WHERE users.id_user = 2
 
-CREATE TABLE friends 
-(
-    id_friendship INT NOT NULL IDENTITY(1,1),
-    id_user INT NOT NULL,
-    id_friend INT NOT NULL,
-    PRIMARY KEY (id_friendship),
-    FOREIGN KEY (id_user) REFERENCES users(id_user),
-    FOREIGN KEY (id_friend) REFERENCES users(id_user)
-)
+
 
 
 CREATE TABLE friend_request
@@ -123,13 +119,12 @@ CREATE TABLE friend_request
 )
 
 
-
+SELECT first_name, place, title FROM studies RIGHT JOIN users ON studies.id_user = users.id_user WHERE users.id_user = 1
 
 DROP TABLE studies;
 DROP TABLE friend_request;
-DROP TABLE friends;
 DROP TABLE hobbies;
 DROP TABLE languages;
+DROP TABLE perfilPicture;
 DROP TABLE users;
 
-SELECT first_name, place, title FROM studies RIGHT JOIN users ON studies.id_user = users.id_user WHERE users.id_user = 1

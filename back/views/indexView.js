@@ -7,8 +7,8 @@ module.exports = async (app) => {
     app.get('/singIn', function(req, res) {
         res.render('pages/singIn');
     });
-    app.get('/portada', function(req, res) {
-        res.render('pages/portada');
+    app.get('/perfil', function(req, res) {
+        res.render('pages/perfil');
     });
     app.get('/actualizar', function(req, res) {
         res.render('pages/actualizar');
