@@ -10,5 +10,8 @@ module.exports = async (app) => {
     app.get('/portada', function(req, res) {
         res.render('pages/portada');
     });
+    app.get('/actualizar', function(req, res) {
+        res.render('pages/actualizar');
+    });
     
 }
