@@ -1,4 +1,13 @@
 var lastStudy = 0
+
+function validateText(valor) {
+    if (valor == null || valor.length == 0 || /^\s+$/.test(valor)) {
+        return false;
+    }
+    else {
+        return true
+    }
+}
 async function getStudies() {
 
     var myHeaders = new Headers();
@@ -46,6 +55,44 @@ function showStudies(studies) {
 
 }
 
+async function addStudy() {
+    title = document.getElementById("newStudyTitle").value
+    place = document.getElementById("newStudyPlace").value
+    if (!validateText(title)) {
+        alert("Ingrese un titulo o certificado")
+    }
+    else if (!validateText(place)) {
+        alert("Ingrese un Lugar")
+    }
+    else {
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", "Bearer " + readCookie("token"));
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+            "place": place,
+            "title": title
+        });
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'manual'
+        };
+
+        fetch("http://localhost:3000/studies/insert", requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .then(() =>{
+                getStudies()
+                $('#popup-studies').fadeOut('slow');
+                $('.popup-overlay').fadeOut('slow');
+            })
+            .catch(error => console.log('error', error));
+    }
+}
+
 async function studiesDelete() {
     if (lastStudy != 0) {
         var myHeaders = new Headers();
@@ -69,6 +116,7 @@ async function studiesDelete() {
             .then(getStudies())
             .catch(error => console.log('error', error));
     }
+
 }
 
 

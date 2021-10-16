@@ -5,13 +5,13 @@ module.exports.languagesSelect = async (user) => {
     let result =await response.languagesSelect(user)
     return result;
 }
-module.exports.languagesInsert = async (user,study) => {
+module.exports.languagesInsert = async (user,language) => {
     let response = new languagesModel();
-    let result =await response.languagesInsert(user,study)
+    let result =await response.languagesInsert(user,language)
     return result;
 }
-module.exports.languagesDelete = async (user,study) => {
+module.exports.languagesDelete = async (user,language) => {
     let response = new languagesModel();
-    let result =await response.languagesDelete(user,study)
+    let result =await response.languagesDelete(user,language)
     return result;
 }

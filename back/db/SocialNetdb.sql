@@ -76,18 +76,17 @@ CREATE TABLE languages
     id_language INT NOT NULL IDENTITY(1,1),
     id_user INT NOT NULL,
     name_language VARCHAR(50),
-    speech_level INT,
-    writing_level INT,
+    language_level VARCHAR(50),
     PRIMARY KEY (id_language),
     FOREIGN KEY (id_user) REFERENCES users(id_user)
 )
 
 INSERT INTO languages
 VALUES
-    (2, 'Inglés', 50, 60),
-    (1, 'Inglés', 60, 50);
+    (2, 'Inglés', 'Intermedio'),
+    (1, 'Inglés', 'Intermedio');
 
-SELECT first_name, name_language, speech_level
+SELECT first_name, name_language, language_level
 FROM languages RIGHT JOIN users ON languages.id_user = users.id_user
 WHERE users.id_user = 1
 
