@@ -43,8 +43,9 @@ module.exports = class loginModel {
         }
     }
 
-    async listUsers (){
-        let result = await sequelize.query("SELECT picture,first_name,last_name FROM users");
+    async listUsers (user){
+        console.log(user.id_user)
+        let result = await sequelize.query("SELECT id_user,first_name,last_name FROM users WHERE id_user !=" + user.id_user);
         return result
     }
 }

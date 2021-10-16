@@ -26,7 +26,9 @@ module.exports = async (app) => {
     });
 
     app.get('/login/select', autentication.userAutentication, async (req, res) => {
-        res.send(await loginController.listUsers())
+        const token = req.headers.authorization.split(' ')[1];
+        let user = jwt.verify(token, process.env.SECRETKEY);
+        res.send(await loginController.listUsers(user.data))
     });
 
 }

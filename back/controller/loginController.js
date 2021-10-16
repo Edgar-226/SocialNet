@@ -32,8 +32,9 @@ module.exports.loginData = async (user) => {
     return data;
 }
 
-module.exports.listUsers = async () => {
+module.exports.listUsers = async (user) => {
+    
     let response = new loginModel();
-    let result =await response.listUsers()
+    let result =await response.listUsers(user)
     return result;
 }
