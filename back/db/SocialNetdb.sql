@@ -31,6 +31,13 @@ CREATE TABLE perfilPicture (
     FOREIGN KEY (id_user) REFERENCES users(id_user)
 )
 
+CREATE TABLE cvUser (
+    id_cv INT NOT NULL IDENTITY(1,1),
+    id_user INT NOT NULL,
+    cv VARBINARY(MAX) NOT NULL,
+    PRIMARY KEY(id_cv),
+    FOREIGN KEY (id_user) REFERENCES users(id_user)
+)
 
 SELECT img 
 FROM perfilPicture RIGHT JOIN users ON perfilPicture.id_user = users.id_user
@@ -56,6 +63,8 @@ VALUES
 
 SELECT *
 FROM studies
+
+DELETE FROM studies WHERE id_study = 3 AND id_user = 1
 
 SELECT first_name, place, title
 FROM studies RIGHT JOIN users ON studies.id_user = users.id_user
