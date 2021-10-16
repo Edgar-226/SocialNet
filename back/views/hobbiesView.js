@@ -1,4 +1,4 @@
-const hobbiesController = require('../controller/hobbiesControler');
+const hobbiesController = require('../controller/hobbiesController');
 const autentication = require('../middleware/autentication');
 const jwt = require("jsonwebtoken")
 
@@ -13,13 +13,13 @@ module.exports = async (app) => {
     app.post('/hobbies/insert', autentication.userAutentication, async (req, res) => {
         const token = req.headers.authorization.split(' ')[1];
         let user = jwt.verify(token, process.env.SECRETKEY);
-        let study = req.body
-        res.send(await hobbiesController.hobbiesInsert(user.data, study));
+        let hobby = req.body
+        res.send(await hobbiesController.hobbiesInsert(user.data, hobby));
     });
     app.delete('/hobbies/delete', autentication.userAutentication, async(req, res) => {
         const token = req.headers.authorization.split(' ')[1];
         let user = jwt.verify(token, process.env.SECRETKEY);
-        let study = req.body
-        res.send(await hobbiesController.hobbiesDelete(user.data, study));
+        let hobby = req.body
+        res.send(await hobbiesController.hobbiesDelete(user.data, hobby));
     });
 }

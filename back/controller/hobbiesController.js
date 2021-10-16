@@ -5,13 +5,13 @@ module.exports.hobbiesSelect = async (user) => {
     let result =await response.hobbiesSelect(user)
     return result;
 }
-module.exports.hobbiesInsert = async (user,study) => {
+module.exports.hobbiesInsert = async (user,hobby) => {
     let response = new hobbiesModel();
-    let result =await response.hobbiesInsert(user,study)
+    let result =await response.hobbiesInsert(user,hobby)
     return result;
 }
-module.exports.hobbiesDelete = async (user,study) => {
+module.exports.hobbiesDelete = async (user,hobby) => {
     let response = new hobbiesModel();
-    let result =await response.hobbiesDelete(user,study)
+    let result =await response.hobbiesDelete(user,hobby)
     return result;
 }
