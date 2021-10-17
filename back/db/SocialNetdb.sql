@@ -104,13 +104,13 @@ CREATE TABLE hobbies
 
 INSERT INTO hobbies
 VALUES
-    (2, 'Reposteria');
+    (1, 'Peliculas');
 
 SELECT * FROM hobbies
 
 SELECT *
 FROM hobbies RIGHT JOIN users ON hobbies.id_user = users.id_user
-WHERE users.id_user = 2
+WHERE users.id_user = 1
 
 
 
