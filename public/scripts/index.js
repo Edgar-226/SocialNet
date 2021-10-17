@@ -56,7 +56,7 @@ function calcularEdad(fecha) {
 }
 
 function showDataUser(data) {
-    console.log(JSON.parse(data));
+    //console.log(JSON.parse(data));
     datos = JSON.parse(data);
     document.getElementById("nameUser").textContent = datos['first_name'] + " " + datos['last_name'];
     document.getElementById("cityUser").textContent = datos['city'];

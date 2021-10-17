@@ -39,7 +39,7 @@ function showhobbies(hobbies) {
 
     hobbies.forEach(hobby => {
         if (hobby.id_hobby != null) {
-            console.log(hobby)
+            //console.log(hobby)
             let hobbyObject = `
             <h6>${hobby.name_hobby}</h6>
             <hr>`

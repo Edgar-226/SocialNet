@@ -39,7 +39,7 @@ function showLanguages(languages) {
 
     languages.forEach(language => {
         if (language.id_language != null) {
-            console.log(language)
+            //console.log(language)
             let languageObject = `
             <h6>${language.name_language}</h6>
             <small>${language.language_level}</small>

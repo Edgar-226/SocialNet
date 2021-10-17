@@ -39,7 +39,7 @@ function showStudies(studies) {
 
     studies.forEach(study => {
         if (study.id_study != null) {
-            console.log(study)
+            //console.log(study)
             let studyObject = `
             <h6>${study.title}</h6>
             <small>${study.place}</small>
