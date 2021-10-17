@@ -13,6 +13,13 @@ $(function () {
         $('.popup-overlay').height($(window).height());
         return false;
     });
+    $("#hobbiesAdd").click(function () {
+        console.log('hola')
+        $('#popup-hobbies').fadeIn('slow');
+        $('.popup-overlay').fadeIn('slow');
+        $('.popup-overlay').height($(window).height());
+        return false;
+    });
 
     $('#close-study').on('click', function () {
         console.log('adios')
@@ -23,6 +30,12 @@ $(function () {
     $('#close-language').on('click', function () {
         console.log('adios')
         $('#popup-languages').fadeOut('slow');
+        $('.popup-overlay').fadeOut('slow');
+        return false;
+    });
+    $('#close-hobby').on('click', function () {
+        console.log('adios')
+        $('#popup-hobbies').fadeOut('slow');
         $('.popup-overlay').fadeOut('slow');
         return false;
     });
