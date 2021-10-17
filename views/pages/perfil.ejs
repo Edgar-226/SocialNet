@@ -18,22 +18,102 @@
             <nav aria-label="breadcrumb" class="main-breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item active manita" aria-current="page">User Profile</li>
-                    <li onclick="eliminarCookies()" class="breadcrumb-item active pe-auto manita" aria-current="page">Cerrar
+                    <li onclick="eliminarCookies()" class="breadcrumb-item active pe-auto manita" aria-current="page">
+                        Cerrar
                         Sesión</li>
                 </ol>
             </nav>
             <!-- /Breadcrumb -->
+
 
             <div class="row gutters-sm">
                 <div class="col-md-4 mb-3">
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
-                                <div id="pictureProfile"  alt="Admin"></div>
-                                    
+                                <div id="pictureProfile" alt="Admin"></div>
+
                                 <div class="mt-3">
                                     <h4 id="nameUser"></h4>
                                     <button id="addPicture" class="btn btn-dark">Subir Foto</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card border-danger golge">
+                        <div class="card-header text-center" style="font-weight: bold;font-size: 19px">
+                            <a href="arkadaslar.html" target="_blank" class="isteColor">
+                                <h6><strong>Amigos</strong></h6>
+                            </a>
+                        </div>
+                        <div class="card-body p-1">
+                            <div class="panel-body">
+                                <div class="list-group">
+                                    <div class="list-group-item list-group-item-action align-items-start  mb-1 p-1">
+                                        <div class="d-flex justify-content-between align-items-center"
+                                            data-toggle="tooltip" title="Bilgisayar Mühendisi">
+                                            <img src="https://i.ibb.co/B3k89LJ/profile-2092113-960-720.png"
+                                                class="img-arkadas">
+                                            <div class="flex-column  mx-1">
+                                                <a href="#" class="text-dark"><small><strong>Name
+                                                            Surname</strong></small></a>
+                                            </div>
+                                            <button class="btn btn-dark fa-pull-right btn-block golge w-25 h-25 mx-1"
+                                                type="button"><i class="fas fa-user-plus"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card border-danger golge">
+                        <div class="card-header text-center" style="font-weight: bold;font-size: 19px">
+                            <a href="arkadaslar.html" target="_blank" class="isteColor">
+                                <h6><strong>Solicitudes</strong></h6>
+                            </a>
+                        </div>
+                        <div class="card-body p-1">
+                            <div class="panel-body">
+                                <div class="list-group">
+                                    <div class="list-group-item list-group-item-action align-items-start  mb-1 p-1">
+                                        <div class="d-flex justify-content-between align-items-center"
+                                            data-toggle="tooltip" title="Bilgisayar Mühendisi">
+                                            <img src="https://i.ibb.co/B3k89LJ/profile-2092113-960-720.png"
+                                                class="img-arkadas">
+                                            <div class="flex-column  mx-1">
+                                                <a href="#" class="text-dark"><small><strong>Name
+                                                            Surname</strong></small></a>
+                                            </div>
+                                            <button class="btn btn-dark fa-pull-right btn-block golge w-25 h-25 mx-1"
+                                                type="button"><i class="fas fa-user-plus"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card border-danger golge">
+                        <div class="card-header text-center" style="font-weight: bold;font-size: 19px">
+                            <a href="arkadaslar.html" target="_blank" class="isteColor">
+                                <h6><strong>Agregar amigos</strong></h6>
+                            </a>
+                        </div>
+                        <div class="card-body p-1">
+                            <div class="panel-body">
+                                <div class="list-group">
+                                    <div class="list-group-item list-group-item-action align-items-start  mb-1 p-1">
+                                        <div class="d-flex justify-content-between align-items-center"
+                                            data-toggle="tooltip" title="Bilgisayar Mühendisi">
+                                            <img src="https://i.ibb.co/B3k89LJ/profile-2092113-960-720.png"
+                                                class="img-arkadas">
+                                            <div class="flex-column  mx-1">
+                                                <a href="#" class="text-dark"><small><strong>Name
+                                                            Surname</strong></small></a>
+                                            </div>
+                                            <button class="btn btn-dark fa-pull-right btn-block golge w-25 h-25 mx-1"
+                                                type="button"><i class="fas fa-user-plus"></i></button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -134,8 +214,7 @@
                                 placeholder="URL Imagen" required />
                         </div>
                         <div class="col-md-12 login-from-row">
-                            <button type="button" onclick="addStudy()"
-                                class="btn btn-outline-success">Agregar</button>
+                            <button type="button" onclick="addStudy()" class="btn btn-outline-success">Agregar</button>
                         </div>
                     </div>
             </div>
@@ -194,12 +273,11 @@
                     <div class="row">
                         <div class="col-md-12 login-from-row">
                             <p class="text-muted">Hobby</p>
-                            <input id="newhobby" name="valor" type="text" placeholder="Nivel"
-                                placeholder="URL Imagen" required />
+                            <input id="newhobby" name="valor" type="text" placeholder="Nivel" placeholder="URL Imagen"
+                                required />
                         </div>
                         <div class="col-md-12 login-from-row">
-                            <button type="button" onclick="addhobby()"
-                                class="btn btn-outline-success">Agregar</button>
+                            <button type="button" onclick="addhobby()" class="btn btn-outline-success">Agregar</button>
                         </div>
                     </div>
             </div>

@@ -26,10 +26,12 @@ FROM users
 CREATE TABLE perfilPicture (
     id_picture INT NOT NULL IDENTITY (1,1),
     id_user INT NOT NULL,
-    img VARBINARY(MAX) NOT NULL,
+    img VARCHAR(MAX) NOT NULL,
     PRIMARY KEY(id_picture),
     FOREIGN KEY (id_user) REFERENCES users(id_user)
 )
+SELECT *
+FROM perfilPicture
 
 CREATE TABLE cvUser (
     id_cv INT NOT NULL IDENTITY(1,1),
