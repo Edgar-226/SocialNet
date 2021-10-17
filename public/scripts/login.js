@@ -166,7 +166,7 @@ function eliminarCookies() {
 
 function validarSesion() {
     if (readCookie("token")) {
-        window.location.href = "/portada";
+        window.location.href = "/perfil";
     }
 }
 
