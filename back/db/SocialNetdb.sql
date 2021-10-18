@@ -17,13 +17,14 @@ CREATE TABLE users
 )
 INSERT INTO users
 VALUES
-    ('Edgar', 'Bastida','CDMX','México', 'https://www.linkedin.com/in/edgar-bastida/', '1995-03-12', 'edgar@mail.com','edgarpass'),
-    ('Anahi', 'Miranda','EDOMEX','México', 'https://www.linkedin.com/in/anahi-miranda/', '2000-08-17', 'anahi@mail.com','anahipass');
+    ('Edgar', 'Bastida', 'CDMX', 'México', 'https://www.linkedin.com/in/edgar-bastida/', '1995-03-12', 'edgar@mail.com', 'edgarpass'),
+    ('Anahi', 'Miranda', 'EDOMEX', 'México', 'https://www.linkedin.com/in/anahi-miranda/', '2000-08-17', 'anahi@mail.com', 'anahipass');
 
 SELECT *
 FROM users
 
-CREATE TABLE perfilPicture (
+CREATE TABLE perfilPicture
+(
     id_picture INT NOT NULL IDENTITY (1,1),
     id_user INT NOT NULL,
     img VARCHAR(MAX) NOT NULL,
@@ -33,7 +34,8 @@ CREATE TABLE perfilPicture (
 SELECT *
 FROM perfilPicture
 
-CREATE TABLE cvUser (
+CREATE TABLE cvUser
+(
     id_cv INT NOT NULL IDENTITY(1,1),
     id_user INT NOT NULL,
     cv VARBINARY(MAX) NOT NULL,
@@ -41,7 +43,7 @@ CREATE TABLE cvUser (
     FOREIGN KEY (id_user) REFERENCES users(id_user)
 )
 
-SELECT img,first_name,last_name,perfilPicture.id_user
+SELECT img, first_name, last_name, users.id_user
 FROM perfilPicture RIGHT JOIN users ON perfilPicture.id_user = users.id_user
 WHERE users.id_user != 2
 
@@ -108,13 +110,25 @@ INSERT INTO hobbies
 VALUES
     (1, 'Peliculas');
 
-SELECT * FROM hobbies
+SELECT *
+FROM hobbies
 
 SELECT *
 FROM hobbies RIGHT JOIN users ON hobbies.id_user = users.id_user
 WHERE users.id_user = 1
 
+CREATE TABLE friends
+(
+    id_friends INT NOT NULL IDENTITY(1,1),
+    id_user INT NOT NULL,
+    id_friend INT NOT NULL,
+    PRIMARY KEY (id_friends),
+    FOREIGN KEY (id_user) REFERENCES users(id_user),
+    FOREIGN KEY (id_friend) REFERENCES users(id_user)
+)
 
+SELECT *
+FROM friends
 
 
 CREATE TABLE friend_request
@@ -129,7 +143,9 @@ CREATE TABLE friend_request
 )
 
 
-SELECT first_name, place, title FROM studies RIGHT JOIN users ON studies.id_user = users.id_user WHERE users.id_user = 1
+SELECT id_friend, request_status
+FROM friend_request RIGHT JOIN users ON friend_request.id_user = users.id_user
+WHERE users.id_user = 1
 
 DROP TABLE studies;
 DROP TABLE friend_request;
@@ -138,3 +154,4 @@ DROP TABLE languages;
 DROP TABLE perfilPicture;
 DROP TABLE users;
 
+SELECT friend_request.id_user,request_status FROM friend_request RIGHT JOIN users ON friend_request.id_friend = users.id_user WHERE friend_request.id_friend =1
