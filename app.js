@@ -8,6 +8,7 @@ const studiesView = require('./back/views/studiesView');
 const languagesView = require('./back/views/languagesView');
 const hobbiesView = require('./back/views/hobbiesView');
 const pictureView = require('./back/views/pictureView');
+const friendsView = require('./back/views/friendsView');
 const app = express();
 
 
@@ -37,3 +38,4 @@ studiesView(app);
 languagesView(app);
 hobbiesView(app);
 pictureView(app);
+friendsView(app)

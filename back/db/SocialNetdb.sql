@@ -41,9 +41,9 @@ CREATE TABLE cvUser (
     FOREIGN KEY (id_user) REFERENCES users(id_user)
 )
 
-SELECT img 
+SELECT img,first_name,last_name,perfilPicture.id_user
 FROM perfilPicture RIGHT JOIN users ON perfilPicture.id_user = users.id_user
-WHERE users.id_user = 1
+WHERE users.id_user != 2
 
 
 CREATE TABLE studies
