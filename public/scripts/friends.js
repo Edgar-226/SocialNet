@@ -94,7 +94,7 @@ async function showRequest(solicitudes) {
 
 async function showRequestUser(user) {
     var myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkX3VzZXIiOjEsImZpcnN0X25hbWUiOiJFZGdhciIsImxhc3RfbmFtZSI6IkJhc3RpZGEiLCJlbWFpbCI6ImVkZ2FyQG1haWwuY29tIn0sImlhdCI6MTYzMzk4NTM0MH0.mvdDz4nH1O9jy1GsEcBw74wHvaKyCkh2B2Pchf6uQdM");
+    myHeaders.append("Authorization", "Bearer "+ readCookie("token") );
     myHeaders.append("Content-Type", "application/json");
 
     var raw = JSON.stringify({
