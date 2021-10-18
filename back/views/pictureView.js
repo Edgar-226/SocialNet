@@ -16,6 +16,12 @@ module.exports = async (app) => {
         let picture = req.body
         res.send(await pictureController.pictureInsert(user.data, picture));
     });
+    app.post('/picture/update', autentication.userAutentication, async (req, res) => {
+        const token = req.headers.authorization.split(' ')[1];
+        let user = jwt.verify(token, process.env.SECRETKEY);
+        let picture = req.body
+        res.send(await pictureController.pictureUpdate(user.data, picture));
+    });
     app.delete('/picture/delete', autentication.userAutentication, async(req, res) => {
         const token = req.headers.authorization.split(' ')[1];
         let user = jwt.verify(token, process.env.SECRETKEY);
