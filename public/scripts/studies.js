@@ -84,7 +84,7 @@ async function addStudy() {
         fetch("http://localhost:3000/studies/insert", requestOptions)
             .then(response => response.text())
             .then(result => console.log(result))
-            .then(() =>{
+            .then(() => {
                 getStudies()
                 $('#popup-studies').fadeOut('slow');
                 $('.popup-overlay').fadeOut('slow');

@@ -56,7 +56,7 @@ function showhobbies(hobbies) {
 
 async function addhobby() {
     namehobby = document.getElementById("newhobby").value
-    
+
     if (!validateText(namehobby)) {
         alert("Ingrese un Nombre")
     }

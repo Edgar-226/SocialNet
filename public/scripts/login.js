@@ -80,19 +80,19 @@ async function singInUser() {
         };
 
         fetch("http://localhost:3000/login/singIn", requestOptions)
-        .then(response => myResponse = response.text())
-        .then(result => myResult = result)
-        .then(() => {
-            try {
-                JSON.parse(myResult)
-                console.log(myResult)
-            } catch (error) {
-                console.log(myResult)
-                document.cookie = `token=${myResult}; max-age=3600; path=/`;
-                window.location.href = '/perfil';
-            }
-        })
-        .catch(error => console.log('error', error));
+            .then(response => myResponse = response.text())
+            .then(result => myResult = result)
+            .then(() => {
+                try {
+                    JSON.parse(myResult)
+                    console.log(myResult)
+                } catch (error) {
+                    console.log(myResult)
+                    document.cookie = `token=${myResult}; max-age=3600; path=/`;
+                    window.location.href = '/perfil';
+                }
+            })
+            .catch(error => console.log('error', error));
     }
 
 

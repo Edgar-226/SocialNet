@@ -1,22 +1,22 @@
 
-async function getUsers(){
+async function getUsers() {
     var myHeaders = new Headers();
-myHeaders.append("Authorization", "Bearer " + readCookie("token"));
+    myHeaders.append("Authorization", "Bearer " + readCookie("token"));
 
-var requestOptions = {
-  method: 'GET',
-  headers: myHeaders,
-  redirect: 'manual'
-};
+    var requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'manual'
+    };
 
-fetch("http://localhost:3000/friends/selectUsers", requestOptions)
-  .then(response => response.text())
-  .then(result => showUsers(result))
-  .catch(error => console.log('error', error));
+    fetch("http://localhost:3000/friends/selectUsers", requestOptions)
+        .then(response => response.text())
+        .then(result => showUsers(result))
+        .catch(error => console.log('error', error));
 }
 
 
-function showUsers(users){
+function showUsers(users) {
     users = JSON.parse(users)
     $("#listaUsuarios").empty()
     users.forEach(user => {
@@ -35,11 +35,11 @@ function showUsers(users){
                         type="button"><i class="fas fa-user-plus"></i></button>
                 </div>
             </div>`
-            let userHTML = document.createElement('div');
-            userHTML.classList.add('list-group-item', 'list-group-item-action', 'align-items-start',  'mb-1', 'p-1')
-            userHTML.innerHTML += cardUser
-            UsuariosContainer = document.getElementById("listaUsuarios");
-            UsuariosContainer.appendChild(userHTML);
+        let userHTML = document.createElement('div');
+        userHTML.classList.add('list-group-item', 'list-group-item-action', 'align-items-start', 'mb-1', 'p-1')
+        userHTML.innerHTML += cardUser
+        UsuariosContainer = document.getElementById("listaUsuarios");
+        UsuariosContainer.appendChild(userHTML);
     });
 }
 
