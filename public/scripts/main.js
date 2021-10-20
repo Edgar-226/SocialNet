@@ -27,6 +27,13 @@ $(function () {
         $('.popup-overlay').height($(window).height());
         return false;
     });
+    $("#addCv").click(function () {
+        console.log('hola')
+        $('#popup-picture').fadeIn('slow');
+        $('.popup-overlay').fadeIn('slow');
+        $('.popup-overlay').height($(window).height());
+        return false;
+    });
 
     $('#close-study').on('click', function () {
         console.log('adios')

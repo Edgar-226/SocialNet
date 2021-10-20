@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <head>
         <%- include('../partials/head'); %>
     </head>
@@ -10,7 +11,7 @@
 </head>
 
 <body>
-    
+
     <header>
         <%- include('../partials/header'); %>
     </header>
@@ -24,22 +25,19 @@
                         <input id="emailUser" type="email" name="" placeholder="Email">
                         <input id="passwordUser" type="password" name="" placeholder="Contraseña">
                         <a class="forgot text-muted" href="/singIn">Crear Cuenta</a>
-                        <input type="button" onclick="loginUser()" name="" value="Entrar" >
+                        <input type="button" onclick="loginUser()" name="" value="Entrar">
                         <div class="col-md-12">
-                            
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    <form action='http://localhost:3000/upload' method="POST" enctype="multipart/form-data">
-
-        <input name="foo" type="file" >
-
-        <input type="submit" value="Subir">
-
-</form>
+    <form ref='uploadForm' encType="multipart/form-data" class="" action="/upload" method="post">
+        <input type="text" name="fileName" value=""><br>
+        <input type="file" name="foo" value=""><br>
+        <input type="submit" name="" value="upload!">
+    </form>
 </body>
 
 <script src="./scripts/login.js"></script>

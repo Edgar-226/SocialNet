@@ -10,12 +10,14 @@ const hobbiesView = require('./back/views/hobbiesView');
 const pictureView = require('./back/views/pictureView');
 const friendsView = require('./back/views/friendsView');
 const filesView = require('./back/views/filesView');
+const fileUpload = require('express-fileupload')
 const app = express();
 
 
 app.use(express.json());
 app.use(cors());
 app.use(express.static(__dirname + '/public'))
+app.use(fileUpload())
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
 
