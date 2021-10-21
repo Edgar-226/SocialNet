@@ -11,7 +11,7 @@ module.exports = async (app) => {
         let friend = req.body
         res.send(await friendsController.friendsUserSelect(user.data,friend));
     });
-    app.get('/friends/findUsers', autentication.userAutentication, async (req, res) => {
+    app.post('/friends/findUsers', autentication.userAutentication, async (req, res) => {
         const token = req.headers.authorization.split(' ')[1];
         let user = jwt.verify(token, process.env.SECRETKEY);
         let friend = req.body

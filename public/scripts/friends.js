@@ -86,7 +86,7 @@ async function getRequest() {
 
 async function showRequest(solicitudes) {
     solicitudes = JSON.parse(solicitudes)
-
+    console.log(solicitudes)
     solicitudes.forEach(solicitud => {
         showRequestUser(solicitud.id_friend)
     });
@@ -94,15 +94,15 @@ async function showRequest(solicitudes) {
 
 async function showRequestUser(user) {
     var myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer "+ readCookie("token") );
+    myHeaders.append("Authorization", "Bearer " + readCookie("token"));
     myHeaders.append("Content-Type", "application/json");
 
     var raw = JSON.stringify({
-        "id_user": 2
+        "id_user": user
     });
 
     var requestOptions = {
-        method: 'GET',
+        method: 'POST',
         headers: myHeaders,
         body: raw,
         redirect: 'manual'
@@ -114,6 +114,7 @@ async function showRequestUser(user) {
         .catch(error => console.log('error', error));
 }
 
-showRequestUser()
+
 getUsers()
-getRequest()
+//getRequest()
+showRequestUser()

@@ -15,7 +15,7 @@ module.exports.singIn = async (user) => {
 }
 
 module.exports.loginUser = async (user) => {
-    let login = new loginModel();//Cada usuario necesita su login
+    let login = new loginModel();
     let data = await login.loginUser(user)
     if (data) {
         token = jwt.sign({ data }, process.env.SECRETKEY);

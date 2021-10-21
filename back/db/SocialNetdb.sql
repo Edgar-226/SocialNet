@@ -145,7 +145,7 @@ CREATE TABLE friend_request
 
 SELECT id_friend, request_status
 FROM friend_request RIGHT JOIN users ON friend_request.id_user = users.id_user
-WHERE users.id_user = 1
+WHERE friend_request.id_user = 1 AND friend_request.id_friend = 2
 
 DROP TABLE studies;
 DROP TABLE friend_request;
