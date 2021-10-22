@@ -60,7 +60,7 @@ module.exports = class friendsModel {
     }
 
     async friendsAccept(user, friend) {
-        let result = await sequelize.query("Update friend_request SET request_status =" + friend.request_status + " WHERE id_user = " + user.id_user + " AND id_friend =" + friend.id_friend)
+        let result = await sequelize.query("Update friend_request SET request_status =" + friend.request_status + " WHERE id_user = " +  friend.id_friend + " AND id_friend =" +user.id_user)
         if (result) {
             let result = await sequelize.query("INSERT INTO friends values (" + user.id_user + "," + friend.id_friend + "),(" + friend.id_friend + "," + user.id_user + ")")
             return result
