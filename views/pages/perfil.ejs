@@ -44,11 +44,25 @@
                         </div>
                     </div>
 
-                   
+
 
                     <div class="card border-danger golge">
                         <div class="card-header text-center" style="font-weight: bold;font-size: 19px">
-                            <a href="arkadaslar.html" target="_blank" class="isteColor">
+                            <a href="#" target="_blank" class="isteColor">
+                                <h6><strong>Amigos</strong></h6>
+                            </a>
+                        </div>
+                        <div class="card-body p-1">
+                            <div class="panel-body">
+                                <div class="list-group" id="listafriends">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card border-danger golge">
+                        <div class="card-header text-center" style="font-weight: bold;font-size: 19px">
+                            <a href="#" target="_blank" class="isteColor">
                                 <h6><strong>Solicitudes Recibidas</strong></h6>
                             </a>
                         </div>
@@ -62,21 +76,7 @@
                     </div>
                     <div class="card border-danger golge">
                         <div class="card-header text-center" style="font-weight: bold;font-size: 19px">
-                            <a href="arkadaslar.html" target="_blank" class="isteColor">
-                                <h6><strong>Solicitudes Recibidas</strong></h6>
-                            </a>
-                        </div>
-                        <div class="card-body p-1">
-                            <div class="panel-body">
-                                <div class="list-group" id="listaSolicitudesRecibidas">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card border-danger golge">
-                        <div class="card-header text-center" style="font-weight: bold;font-size: 19px">
-                            <a href="arkadaslar.html" target="_blank" class="isteColor">
+                            <a href="#" target="_blank" class="isteColor">
                                 <h6><strong>Solicitudes</strong></h6>
                             </a>
                         </div>
@@ -90,7 +90,7 @@
                     </div>
                     <div class="card border-danger golge">
                         <div class="card-header text-center" style="font-weight: bold;font-size: 19px">
-                            <a href="arkadaslar.html" target="_blank" class="isteColor">
+                            <a href="#" target="_blank" class="isteColor">
                                 <h6><strong>Agregar amigos</strong></h6>
                             </a>
                         </div>
@@ -316,12 +316,13 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12 login-from-row">
-                            <p class="text-muted">Subir foto</p>
-                            <input id="newPicture" type="file" name="adjunto" accept=".jpg" multiple />
-                        </div>
-                        <div class="col-md-12 login-from-row">
-                            <button type="button" onclick="addPicture()"
-                                class="btn btn-outline-success">Agregar</button>
+                            <p class="text-muted">Subir CV</p>
+                            <form ref='uploadForm' encType="multipart/form-data" class="" action="/upload"
+                                method="post">
+                                <input type="text" name="fileName" value=""><br>
+                                <input type="file" name="foo" value=""><br>
+                                <input type="submit" name="" value="upload!">
+                            </form>
                         </div>
                     </div>
             </div>

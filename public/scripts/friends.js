@@ -91,6 +91,31 @@ function showRequestTables2(users) {
         UsuariosContainer.appendChild(userHTML);
     });
 }
+function showRequestTables3(users) {
+    users = JSON.parse(users)
+    console.log(users)
+    users.forEach(user => {
+        console.log(user.id_user)
+        let cardUser = `
+            <div class="list-group-item list-group-item-action align-items-start  mb-1 p-1">
+                <div class="d-flex justify-content-between align-items-center"
+                    data-toggle="tooltip" title="Bilgisayar Mühendisi">
+                    <img src="${user.img}"
+                        class="img-arkadas">
+                    <div class="flex-column  mx-1">
+                        <a onclick="verPerfil(${user.id_user})" class="text-dark"><small><strong>${user.first_name}
+                                    ${user.last_name}</strong></small></a>
+                    </div>
+                    
+                </div>
+            </div>`
+        let userHTML = document.createElement('div');
+        userHTML.classList.add('list-group-item', 'list-group-item-action', 'align-items-start', 'mb-1', 'p-1')
+        userHTML.innerHTML += cardUser
+        UsuariosContainer = document.getElementById("listafriends");
+        UsuariosContainer.appendChild(userHTML);
+    });
+}
 
 async function addfriend(id_friend) {
     var myHeaders = new Headers();
@@ -132,7 +157,7 @@ async function getRequest(result) {
         .catch(error => console.log('error', error));
 }
 async function getRequest2(result) {
-    console.log(result)
+    
     var myHeaders = new Headers();
     myHeaders.append("Authorization", "Bearer " + readCookie("token"));
 
@@ -213,6 +238,28 @@ async function showRequestUser2(user) {
         .then(result => showRequestTables2(result))
         .catch(error => console.log('error', error));
 }
+async function showFriendsUser(user) {
+    console.log(user)
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer " + readCookie("token"));
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+        "id_user": user
+    });
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'manual'
+    };
+
+    fetch("http://localhost:3000/friends/findUsers", requestOptions)
+        .then(response => response.text())
+        .then(result => showRequestTables3(result))
+        .catch(error => console.log('error', error));
+}
 
 async function acceptfriend(id_friend) {
     var myHeaders = new Headers();
@@ -241,7 +288,39 @@ async function acceptfriend(id_friend) {
         .catch(error => console.log('error', error));
 }
 
+async function getFriends() {
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer "+ readCookie("token"));
+    myHeaders.append("Content-Type", "application/json");
 
+    
+    var requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'manual'
+    };
+
+    fetch("http://localhost:3000/friends/selectFriends", requestOptions)
+        .then(response => response.text())
+        .then(result => showFriends(result))
+        .catch(error => console.log('error', error));
+}
+
+async function showFriends(friends) {
+    $("#listafriends").empty()
+    friends = JSON.parse(friends)
+    console.log(friends)
+
+    friends.forEach(friend => {
+        
+            console.log(friend)
+            showFriendsUser(friend)
+        
+        });
+}
+
+
+getFriends()
 getUsers()
 getRequest()
 getRequest2()

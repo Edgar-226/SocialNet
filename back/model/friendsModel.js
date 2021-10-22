@@ -73,6 +73,4 @@ module.exports = class friendsModel {
         return result
     }
 
-
-
 }
